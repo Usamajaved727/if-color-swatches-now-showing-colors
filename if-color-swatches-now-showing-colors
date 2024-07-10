@@ -1,0 +1,26 @@
+ <script>
+// Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Delay execution by 1 second (1000 milliseconds)
+    setTimeout(function() {
+        // Select all label elements with the class swatch-anchor
+        var labels = document.querySelectorAll('label.swatch-anchor');
+
+        // Loop through each label
+        labels.forEach(function(label) {
+            // Get the parent li element
+            var parentLi = label.closest('ul.value.g-variant-color-detail li.select-option.globo-sold-out-default.available');
+
+            // Check if parent li exists and has data-value attribute
+            if (parentLi && parentLi.hasAttribute('data-value')) {
+                // Get data-value attribute value
+                var dataValue = parentLi.getAttribute('data-value');
+
+                // Toggle the appropriate background color class
+                label.classList.toggle('bg-' + dataValue.toLowerCase(), true);
+            }
+        });
+    }, 2000); // 1000 milliseconds = 1 second
+});
+
+    </script>
